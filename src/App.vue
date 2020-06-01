@@ -12,7 +12,7 @@ import LandingPage from './components/LandingPage.vue'
 
 export default {
   components:{
-    'LandingPage':LandingPage
+    LandingPage
   },
   data(){
     return{

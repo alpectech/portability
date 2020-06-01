@@ -3,16 +3,16 @@
     <nav>
       <h1>portability</h1>
     </nav>
-    <landingPage></landingPage>
+    <LandingPage></LandingPage>
   </div>
 </template>
 
 <script>
-import landingPage from './components/LandingPage.vue'
+import LandingPage from './components/LandingPage.vue'
 
 export default {
   components:{
-    'landingPage':landingPage
+    'LandingPage':LandingPage
   },
   data(){
     return{

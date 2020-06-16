@@ -3,7 +3,7 @@
     <nav class="h-18">
       <h1 class="font-hairline font-thin text-2xl text-center text-gray leading-loose antialised pb-2 uppercase">portability</h1>
     </nav>
-    <LandingPage></LandingPage>
+    <router-view></router-view>
   </div>
 </template>
 

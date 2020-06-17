@@ -11,11 +11,11 @@
     <div class="flex flex-row flex-wrap items-center my-2">
       <div class="w-1/2 text-center">
         <i class="fas fa-truck-moving w-full"></i>
-        <a class="btn" href="#">MOVE</a>
+        <a class="btn" href="/#/move">MOVE</a>
       </div>
       <div class="w-1/2 text-center border-4 border-white items-center">
         <i class="fas fa-warehouse w-full"></i>
-        <a class="btn" href="#">STORE</a>
+        <a class="btn" href="/#/store">STORE</a>
       </div>
     </div>
     <div class="h-16" id="google-static-map"></div>

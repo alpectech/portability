@@ -12,7 +12,9 @@ const app = express();
 //Route Handler
 app.get('/key', (req, res) => {
   const key = process.env.GOOGLE_API_KEY;
-  res.json({key:key});
+  res.json(JSON.stringify({
+    key: key
+  }));
   // res.sendFile(__dirname+'/index.html');
 });
 

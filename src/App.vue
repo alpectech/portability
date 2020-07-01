@@ -28,5 +28,8 @@ export default {
   .btn {
     @apply inline-block px-4 py-2 rounded-lg shadow-lg bg-indigo-700 text-white;
   }
+  .input {
+    @apply border rounded-md my-2 w-3/4;
+  }
   @tailwind utilities;
 </style>

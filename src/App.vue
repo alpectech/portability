@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <nav>
-      <h1>portability</h1>
+    <nav class="h-18">
+      <h1 class="font-hairline font-thin text-2xl text-center text-gray leading-loose antialised pb-2 uppercase">portability</h1>
     </nav>
-    <LandingPage></LandingPage>
+    <RouterView></RouterView>
   </div>
 </template>
 
@@ -23,11 +23,13 @@ export default {
 </script>
 
 <style lang="scss">
-:root {
-  font-family: "Courier New", monospace;
-}
-nav {
-  font-variant: small-caps;
-  text-align: center;
-}
+  @tailwind base;
+  @tailwind components;
+  .btn {
+    @apply inline-block px-4 py-2 rounded-lg shadow-lg bg-indigo-700 text-white;
+  }
+  .input {
+    @apply border rounded-md my-2 w-3/4;
+  }
+  @tailwind utilities;
 </style>

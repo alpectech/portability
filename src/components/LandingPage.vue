@@ -11,11 +11,11 @@
     <div class="flex flex-row flex-wrap items-center my-2">
       <div class="w-1/2 text-center">
         <i class="w-full fas fa-truck-moving"></i>
-        <a class="btn" href="/#/move">MOVE</a>
+        <a class="btn" href="/move">MOVE</a>
       </div>
       <div class="items-center w-1/2 text-center border-4 border-white">
         <i class="w-full fas fa-warehouse"></i>
-        <a class="btn" href="/#/store">STORE</a>
+        <a class="btn" href="/store">STORE</a>
       </div>
     </div>
     <div class="h-16" id="google-static-map">
@@ -75,7 +75,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-
-</style>

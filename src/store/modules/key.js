@@ -8,7 +8,7 @@ const getters = {
 
 const actions = {
   async fetchKey({ commit }){
-    const response = await fetch('http://localhost:3000/key')
+    const response = await fetch('http://localhost:5000/key')
     .then(data=>data.json())
     .then(data => JSON.parse(data).key)
     .catch((err) => {

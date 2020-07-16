@@ -31,15 +31,13 @@ export default {
     }
   },
   methods: {
-    display(){
-      alert('DISTANCE: '+this.distance+' metres');
-    },
     distanceMatrix(){
       let from = this.from.concat(', Nairobi'), to = this.to.concat(', Nairobi');
       fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${from}&destinations=${to}&key=${this.getKey}`)
         .then(response=>response.json())
         .then(data=>this.distance = data.rows[0].elements[0].distance.value)
         .catch(err=>console.log(err));
+        alert('DISTANCE: '+this.distance+' metres');
       },
       chooseLoad(){
         console.log('Load chosen:', this.load);

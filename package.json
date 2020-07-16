@@ -1,7 +1,7 @@
 {
   "name": "portability",
   "description": "A platform for moving people and goods",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "author": "Sciederrick and d3vkk",
   "license": "MIT",
   "private": true,

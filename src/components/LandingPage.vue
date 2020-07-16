@@ -18,8 +18,6 @@
         <a class="btn" href="/store">STORE</a>
       </div>
     </div>
-    <div class="h-16" id="google-static-map">
-    </div>
   </div>
 </template>
 
@@ -33,15 +31,6 @@ export default {
     };
   },
   methods: {
-    staticMap() {
-      const staticMapImg = document.createElement("img");
-      staticMapImg.setAttribute(
-        "src",
-        `https://maps.googleapis.com/maps/api/staticmap?center=Westlands,Nairobi&zoom=13&size=512x242&maptype=roadmap&scale=1&format=png&style=feature:road.highway|element:geometry|visibility:simplified|color:0xc280e9&style=feature:transit.line|visibility:simplified|color:0xbababa&markers=color:blue|label:S|40.702147,-74.015794&markers=color:green|label:G|40.711614,-74.012318&key=${this.getKey}`
-      );
-      const staticMapDiv = document.getElementById("google-static-map");
-      staticMapDiv.appendChild(staticMapImg);
-    },
     getCurrentLocation() {
       var options = {
         enableHighAccuracy: true,
@@ -70,7 +59,6 @@ export default {
     this.$store.dispatch("fetchKey");
   },
   mounted() {
-    this.staticMap();
     this.getCurrentLocation();
   }
 };

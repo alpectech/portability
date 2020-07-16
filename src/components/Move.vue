@@ -1,6 +1,5 @@
 <template>
   <div class="bg-scroll md:hidden flex flex-col bg-gray-100" >
-      <input type="text" name="from" v-model="from" placeholder="where from.." class="input mx-auto" autocomplete="off">
       <input type="text" name="to" v-model="to" placeholder="where to.." class="input mx-auto" autocomplete="off">
       <button type="button" name="button" @click="distanceMatrix" class="btn w-1/2 mx-auto">distance</button>
       <div class="text-center mt-6">Choose your load</div>
@@ -27,10 +26,39 @@ export default {
       distance:'',
       from:'',
       to: '',
-      load: ''
+      load: '',
+      currentLocationCoords: {}
     }
   },
   methods: {
+    getCurrentLocationSuccess(pos){
+      this.currentLocationCoords = pos.coords;
+      this.convertToReadableLocation();
+    },
+    getCurrentLocation() {
+      var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+      };
+
+      function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+      }
+
+      navigator.geolocation.getCurrentPosition(this.getCurrentLocationSuccess, error, options);
+    },
+    async convertToReadableLocation(){
+      //Reverse Geocoding API
+      console.log("this.getKey:", this.getKey);
+      const res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.currentLocationCoords.latitude},${this.currentLocationCoords.longitude}&key=${this.getKey}`);
+      if (res.status != 200) {
+        console.log(res.status);
+      } else {
+        this.from = (await res.json()).results[0].address_components[1].long_name;
+        console.log("readable current location:", this.from);
+      }
+    },
     distanceMatrix(){
       let from = this.from.concat(', Nairobi'), to = this.to.concat(', Nairobi');
       fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${from}&destinations=${to}&key=${this.getKey}`)
@@ -47,5 +75,8 @@ export default {
   created(){
     this.$store.dispatch('fetchKey')
   },
+  mounted() {
+    this.getCurrentLocation();
+  }
 };
 </script>
